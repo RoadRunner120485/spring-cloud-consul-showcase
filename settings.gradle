@@ -1,0 +1,5 @@
+rootProject.name = 'spring-boot-starter-tomcat'
+
+include 'hello-service'
+include 'hello-client'
+

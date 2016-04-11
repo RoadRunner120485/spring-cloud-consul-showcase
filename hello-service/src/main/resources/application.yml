@@ -1,0 +1,11 @@
+#server.port=8080
+server:
+  port: 8080
+
+spring:
+  application:
+    name: helloService
+  cloud:
+    consul:
+      bus:
+        eventDelay: 3000
