@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+    mavenCentral()
+}
+
+task allDeps(type: DependencyReportTask) {}
+
+dependencies {
+    compile('org.projectlombok:lombok:1.16.8')
+}

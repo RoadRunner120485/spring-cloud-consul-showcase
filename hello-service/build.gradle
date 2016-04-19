@@ -1,30 +1,4 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'io.spring.gradle:dependency-management-plugin:0.5.6.RELEASE'
-    }
-}
-
-apply plugin: 'io.spring.dependency-management'
-apply plugin: 'java'
-apply plugin: 'idea'
-
-dependencyManagement {
-    imports {
-        mavenBom 'org.springframework.cloud:spring-cloud-consul-dependencies:1.0.0.RC1'
-    }
-}
-repositories {
-    mavenCentral()
-    maven {
-        url 'https://repo.spring.io/libs-milestone'
-    }
-}
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+apply from: file("${project.rootDir}/gradle/spring-cloud.gradle")
 
 dependencies {
 //    compile('org.springframework.boot:spring-boot-starter-tomcat:1.3.3.RELEASE')
@@ -32,16 +6,11 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-actuator')
 
     compile('org.springframework.cloud:spring-cloud-starter-consul-all')
+    compile('de.codecentric:spring-boot-admin-starter-client:1.3.2')
 
     compile('org.springframework.cloud:spring-cloud-bus:1.0.3.RELEASE')
     compile('org.springframework.cloud:spring-cloud-consul-bus:1.0.0.M2')
 
-    compile('org.projectlombok:lombok:1.16.8')
-
     // end::actuator[]
     testCompile('junit:junit:4.12')
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.12'
 }

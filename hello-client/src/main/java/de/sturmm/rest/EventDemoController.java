@@ -26,9 +26,7 @@ import javax.inject.Inject;
  * Created by sturmm on 10.04.16.
  */
 @RestController
-//@RequiredArgsConstructor(onConstructor = @__(@Inject))
 public class EventDemoController {
-
 
     @Inject
     @Qualifier("cloudBusOutboundChannel")

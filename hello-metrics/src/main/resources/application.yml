@@ -1,0 +1,9 @@
+server:
+  port: 8082
+
+spring:
+  boot:
+    admin:
+      url: ${admin.server.url:http://localhost:8083}
+  application:
+    name: metricsService
