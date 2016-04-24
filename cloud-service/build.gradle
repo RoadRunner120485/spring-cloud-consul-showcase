@@ -1,0 +1,13 @@
+apply from: file("${project.rootDir}/gradle/spring-cloud.gradle")
+apply from: file("${project.rootDir}/gradle/docker-war.gradle")
+
+dependencies {
+    compile project(':cloud-commons')
+
+    compile('de.codecentric:spring-boot-admin-starter-client:1.3.2')
+
+    compile('org.springframework.cloud:spring-cloud-bus:1.0.3.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-consul-bus:1.0.0.M2')
+
+    testCompile('junit:junit:4.12')
+}

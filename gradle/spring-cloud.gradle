@@ -12,3 +12,10 @@ repositories {
         url 'https://repo.spring.io/libs-milestone'
     }
 }
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-tomcat")
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+
+    compile('org.springframework.cloud:spring-cloud-starter-consul-all')
+}

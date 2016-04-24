@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: helloClient
+  cloud:
+    consul:
+      bus:
+        eventDelay: 3000
+      discovery:
+        register: false
+        prefer-ip-address: true
+
+---
+
+spring:
+  profiles: docker
+  cloud:
+    consul:
+      host: consul
+
+server:
+  port: 8080

@@ -1,0 +1,8 @@
+spring:
+  boot:
+    admin:
+      url: ${admin.server.url:http://localhost:8083}
+      client:
+        service-url: http://${spring.cloud.client.ipAddress}:${server.port:8080}
+        management-url: ${spring.boot.admin.client.service-url}
+        health-url: ${spring.boot.admin.client.service-url}/health

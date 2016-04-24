@@ -1,0 +1,16 @@
+apply plugin: 'docker'
+apply plugin: 'war'
+
+docker {
+    baseImage "tomcat:8-jre8"
+    maintainer 'Martin Sturm "roadrunner120485@@users.noreply.github.com"'
+}
+
+task dockerize(type: Docker) {
+    applicationName = "${war.baseName}"
+    runCommand "rm -f -r /usr/local/tomcat/webapps/*"
+    addFile("$buildDir/libs/${war.baseName}.war", "/usr/local/tomcat/webapps/ROOT.war")
+    setEnvironment("PROFILES_ACTIVE","default")
+    setEnvironment("JAVA_OPTS","-Dspring.profiles.active=docker,\${PROFILES_ACTIVE}")
+}
+dockerize.dependsOn war

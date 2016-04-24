@@ -1,7 +1,8 @@
 rootProject.name = 'spring-boot-starter-tomcat'
 
-include 'hello-service'
-include 'hello-client'
-include 'hello-metrics'
+include 'cloud-commons'
+include 'cloud-service'
+include 'cloud-client'
+include 'cloud-metrics'
 include 'admin-server'
 

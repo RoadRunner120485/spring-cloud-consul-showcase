@@ -1,0 +1,59 @@
+version: '2'
+
+# Work in Progress
+services:
+  consul:
+    image: gliderlabs/consul
+#    volumes:
+#      - ./consul/data:/data
+#      - ./consul/config:/config
+#      - ./consul/ui:/ui
+    ports:
+      - "8300:8300"
+      - "8400:8400"
+      - "8500:8500"
+      - "8600:8600"
+    command: agent -server -bootstrap -data-dir /data -ui -client 0.0.0.0
+    networks:
+      - cloud
+
+  admin-server:
+    image: spring-boot-starter-tomcat/admin-server
+    ports:
+      - "8083:8080"
+    networks:
+      - cloud
+
+  cloud-service:
+    image: spring-boot-starter-tomcat/cloud-service
+    ports:
+      - "8080:8080"
+    links:
+      - consul
+      - admin-server:adminserver
+    networks:
+      - cloud
+
+  cloud-client:
+    image: spring-boot-starter-tomcat/cloud-client
+    ports:
+      - "8081:8080"
+    links:
+      - consul
+      - admin-server:adminserver
+    networks:
+      - cloud
+
+  cloud-metrics:
+    image: spring-boot-starter-tomcat/cloud-metrics
+    ports:
+      - "8082:8080"
+    links:
+      - admin-server:adminserver
+    networks:
+      - cloud
+
+
+networks:
+  cloud:
+    driver: bridge
