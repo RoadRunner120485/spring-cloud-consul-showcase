@@ -1,12 +1,14 @@
 package de.sturmm.app;
 
 import de.sturmm.config.MetricsConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 /**
  * Created by sturmm on 22.04.16.
  */
+@SpringBootApplication
 public class MetricsApplication extends SpringBootServletInitializer {
 
     @Override

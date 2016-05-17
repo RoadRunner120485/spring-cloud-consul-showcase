@@ -3,22 +3,22 @@ server:
 
 spring:
   application:
-    name: helloClient
-  cloud:
-    consul:
-      bus:
-        eventDelay: 3000
-      discovery:
-        register: false
-        prefer-ip-address: true
+    name: cloud-client
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${service.registry.url:http://eureka:8080/eureka/}
 
 ---
-
 spring:
-  profiles: docker
-  cloud:
-    consul:
-      host: consul
+  profiles: development
+
+service:
+  registry:
+    url: http://localhost:8761/eureka/
+
+---
 
 server:
   port: 8080

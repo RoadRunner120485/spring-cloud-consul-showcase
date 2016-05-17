@@ -1,8 +1,10 @@
 rootProject.name = 'spring-boot-starter-tomcat'
 
+include 'eureka-server'
+include 'admin-server'
+
 include 'cloud-commons'
 include 'cloud-service'
 include 'cloud-client'
 include 'cloud-metrics'
-include 'admin-server'
 

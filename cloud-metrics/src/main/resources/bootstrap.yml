@@ -10,13 +10,24 @@ spring:
         eventDelay: 3000
       discovery:
         prefer-ip-address: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${service.registry.url:http://eureka:8080/eureka/eureka/}
+
+---
+spring:
+  profiles: development
+
+service:
+  registry:
+    url: http://localhost:8761/eureka/eureka/
+
 ---
 
 spring:
   profiles: docker
-  cloud:
-    consul:
-      host: consul
 
 server:
   port: 8080

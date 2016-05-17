@@ -1,17 +1,18 @@
 server:
-  port: 8083
+  port: 8761
 
 spring:
   application:
-    name: springBootAdminServer
+    name: eureka-server
 
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
     serviceUrl:
       defaultZone: ${service.registry.url:http://eureka:8080/eureka/}
 
 ---
-
 spring:
   profiles: development
 
@@ -19,11 +20,10 @@ service:
   registry:
     url: http://localhost:8761/eureka/
 
----
 
+---
 spring:
   profiles: docker
 
 server:
   port: 8080
-

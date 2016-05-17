@@ -2,9 +2,7 @@ apply from: file("${project.rootDir}/gradle/spring-cloud.gradle")
 apply from: file("${project.rootDir}/gradle/docker-war.gradle")
 
 dependencies {
-    compile project(':cloud-commons')
-
-    compile('org.springframework.cloud:spring-cloud-starter-zipkin')
+    compile("org.springframework.cloud:spring-cloud-starter-eureka-server")
 
     testCompile('junit:junit:4.12')
 }
