@@ -11,6 +11,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${service.registry.url:http://eureka:8080/eureka/}
+  dashboard:
+    path: /dashboard
 
 ---
 spring:

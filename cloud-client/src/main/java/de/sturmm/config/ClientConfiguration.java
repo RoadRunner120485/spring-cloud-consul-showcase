@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableAutoConfiguration
 @EnableDiscoveryClient
 @EnableFeignClients(clients = HelloRepository.class)
 @ComponentScan(basePackages = "de.sturmm")

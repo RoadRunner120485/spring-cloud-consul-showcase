@@ -2,7 +2,6 @@ apply from: file("${project.rootDir}/gradle/spring-cloud.gradle")
 apply from: file("${project.rootDir}/gradle/docker-war.gradle")
 
 dependencies {
-    compile project(':cloud-commons')
-
-    testCompile('junit:junit:4.12')
+    compile 'org.springframework.cloud:spring-cloud-stream'
+    compile 'org.springframework.cloud:spring-cloud-starter-stream-kafka'
 }

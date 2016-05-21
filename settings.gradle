@@ -8,3 +8,6 @@ include 'cloud-service'
 include 'cloud-client'
 include 'cloud-metrics'
 
+include 'cloud-stream:consumer'
+include 'cloud-stream:producer'
+include 'cloud-stream:sleuth-zipkin-kafka-binder'

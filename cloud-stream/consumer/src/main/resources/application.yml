@@ -1,0 +1,9 @@
+server:
+  port: 8086
+
+
+spring:
+  main:
+    web-environment: false
+  application:
+    name: cloud-stream-consumer

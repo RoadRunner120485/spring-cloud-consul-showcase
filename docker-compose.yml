@@ -21,8 +21,6 @@ services:
 
   cloud-service:
     image: spring-boot-starter-tomcat/cloud-service
-#    ports:
-#      - "8080:8080"
     links:
       - eureka-server:eureka
     networks:
